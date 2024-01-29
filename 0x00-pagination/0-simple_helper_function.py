@@ -2,9 +2,9 @@
 """
 This module contains function index_range for pagination
 """
+from typing import Tuple
 
-
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Helper function that computes the range to be used for pagination
 

@@ -1,12 +1,13 @@
-import csv
-import math
-from typing import List
+#!/usr/bin/env python3
 """
 This module contains a function and a class used to implement pagination
 """
+import csv
+import math
+from typing import List, Tuple
 
 
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Helper function that computes the range to be used for pagination
 
