@@ -45,6 +45,7 @@ class Server:
         A function that uses the index_range function defined above to get
         the content of a page within the given index
         """
+
         assert type(page) == int and type(page_size) == int \
             and page > 0 and page_size > 0
         start, end = index_range(page, page_size)
@@ -61,12 +62,12 @@ class Server:
         """
         hyper = {"page": page}
         data = self.get_page(page, page_size)
-        hyper["page_size"] = len(data)
+        hyper["page_size"] = page_size if page_size <= len(data) else len(data)
         hyper["data"] = data
         hyper["prev_page"] = page - 1 if (page - 1) > 0 else None
         size = len(self.__dataset)
         total_page = math.floor(size/page_size)
         hyper["next_page"] = page + 1 if (page + 1) <= total_page else None
-        hyper["total_page"] = total_page
+        hyper["total_pages"] = total_page
 
         return hyper
